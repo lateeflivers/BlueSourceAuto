@@ -1,0 +1,49 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+	<test name="TestBluePageLoginSuccessful"  preserve-order="true">
+		<parameter name="firstName" value="adam" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="UserRole" value="Normal" />
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>
+			<class name="blueTests.VerifyLogin">
+			    <methods>
+			        <include name="testLoginProcess" />
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>	
+	
+	<test name="TestBluePageLoginUnsuccessful"  preserve-order="true">
+		<parameter name="firstName" value="lateef" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="UserRole" value="Normal" />
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>
+			<class name="blueTests.VerifyLogin">
+			    <methods>
+			        <include name="verifyBadLogin" />
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>		
+	
+</suite>
+	

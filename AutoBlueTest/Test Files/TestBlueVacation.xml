@@ -1,0 +1,85 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+	<test name="AddVacationTime"  preserve-order="true">
+		<parameter name="firstName" value="adam" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="StartDate" value="2014-02-17"/>
+		<parameter name="EndDate" value="2014-02-17"/>
+		<parameter name="VacationType" value="Vacation"/>
+		<parameter name="employeeFirstName" value="Stephen"/>
+		<parameter name="employeeLastName" value="King"/>
+		<parameter name="UserRole" value="Normal" />
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>
+			<class name="blueTests.VerifyVacationTime">
+			    <methods>
+			        <include name="AddVacationTime" />
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>	
+	
+	<test name="AddSickTime"  preserve-order="true">
+		<parameter name="firstName" value="adam" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="StartDate" value="2014-02-18"/>
+		<parameter name="EndDate" value="2014-02-18"/>
+		<parameter name="VacationType" value="Sick"/>
+		<parameter name="employeeFirstName" value="Stephen"/>
+		<parameter name="employeeLastName" value="King"/>
+		<parameter name="UserRole" value="Normal" />
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>
+			<class name="blueTests.VerifyVacationTime">
+			    <methods>
+			        <include name="AddVacationTime" />
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>		
+	
+		<test name="AddFloatTime"  preserve-order="true">
+		<parameter name="firstName" value="adam" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="StartDate" value="2014-02-19"/>
+		<parameter name="EndDate" value="2014-02-19"/>
+		<parameter name="VacationType" value="Floating Holiday"/>
+		<parameter name="employeeFirstName" value="Stephen"/>
+		<parameter name="employeeLastName" value="King"/>
+		<parameter name="UserRole" value="Normal" />
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>
+			<class name="blueTests.VerifyVacationTime">
+			    <methods>
+			        <include name="AddVacationTime" />
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>		
+</suite>
+	
