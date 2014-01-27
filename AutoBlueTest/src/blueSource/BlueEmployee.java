@@ -1,0 +1,117 @@
+package blueSource;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+
+/**
+ * Employee Page
+ * @author Lateef
+ * Jan 22, 2014
+ * TODO logic for General info Modal
+ * TODO logic for Project info Modal
+ * TODO logic to see which Tabs are expanded
+ */
+public class BlueEmployee extends BluePage{
+
+	private boolean generalInfoExpanded;// = true;
+	private boolean projectInfoExpanded;// = false;
+	private boolean timeOffInfoExpanded;// = false;
+	
+	/**
+	 * Default constructor
+	 * @param driver
+	 */
+	public BlueEmployee(WebDriver driver){
+		super(driver);
+		generalInfoExpanded = true;
+		projectInfoExpanded = false;
+		timeOffInfoExpanded = false;
+
+	}
+
+	/**
+	 * Clicks the Manage button for "General Info"
+	 */
+	public void manageGenernalInfo(){
+		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[3]/button")).click();
+	}
+	
+	/**
+	 * If the general tab is not already expanded. Click to expand
+	 */
+	public void expandGeneralTab(){
+		if(isExpanded(generalInfoExpanded)==false)
+		{
+			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[3]")).click();
+			generalInfoExpanded = true;
+			projectInfoExpanded = false;
+			timeOffInfoExpanded = false;
+		}
+	}
+	
+	/**
+	 * If the project tab is not already expanded. Click to expand
+	 */
+	public void expandProjectTab(){
+		if(isExpanded(projectInfoExpanded)==false)
+		{
+			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[5]")).click();
+			generalInfoExpanded = false;
+			projectInfoExpanded = true;
+			timeOffInfoExpanded = false;
+		}
+	}
+
+	/**
+	 * If the Time Off  tab is not already expanded. Click to expand
+	 */
+	public void expandTimeOffTab(){
+		if(isExpanded(projectInfoExpanded)==false)
+		{
+			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[7]")).click();
+			generalInfoExpanded = false;
+			projectInfoExpanded = false;
+			timeOffInfoExpanded = true;
+		}
+	}
+	
+	
+	/**
+	 * Returns if a panel is expanded or not
+	 * @param panel	If true table is expanded else it is false
+	 * @return True or False
+	 */
+	private boolean isExpanded(boolean panel){
+		return panel;
+	}
+	
+	/**
+	 * Clicks the Manage button for "Project Info"
+	 */
+	public void manageProjectInfo(){
+		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[5]/button")).click();
+	}
+	
+	/**
+	 * Navigates to the Manage time off screen
+	 * @return new BlueTimeOff driver
+	 */
+	public BlueTimeOff manageTimeOff(){
+		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[7]/div[1]/a")).click();
+		return new BlueTimeOff(driver);
+	}
+
+
+	/**
+	 * Navigates back to the index
+	 * @return new BlueIndex driver
+	 */
+	public BlueIndex goBack(){
+		getWebElementBy(By.xpath("html/body/div[1]/a")).click();
+		return new BlueIndex(driver);
+	}
+	
+	
+	
+}
