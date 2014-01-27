@@ -1,8 +1,11 @@
 package blueTests;
 
 import static org.testng.AssertJUnit.assertTrue;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -15,6 +18,7 @@ import blueSource.BlueTimeOff;
 public class VerifyVacationTime {
 	
 	private static WebDriver driver;
+	private static final String test = "Failed";
 	
 	@BeforeTest
 	public static void initializeTest(){
@@ -59,11 +63,12 @@ public class VerifyVacationTime {
 		
 		timeOffPage.enterVacation(StartDate, EndDate, VacationType);
 		// Verify update is successful.
-		assertTrue(timeOffPage.isUpdateSuccessful());
+		assertTrue("Failed",timeOffPage.isUpdateSuccessful());
+
 
 		
 		timeOffPage.deleteFirstEntry();
-//		assertTrue(timeOffPage.isDeleteSuccessful());
+		assertTrue("Didn't Delete",timeOffPage.isDeleteSuccessful());
 		
 		timeOffPage.clickLogout();
 	}

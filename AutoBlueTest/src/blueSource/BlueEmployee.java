@@ -18,6 +18,11 @@ public class BlueEmployee extends BluePage{
 	private boolean projectInfoExpanded;// = false;
 	private boolean timeOffInfoExpanded;// = false;
 	
+	private static final String manageTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[2]";
+	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";
+	private static final String manageProjectInfoXpath = ".//*[@id='accordion']/div/div[5]/button";
+	private static final String manageGeneralXpath = ".//*[@id='accordion']/div/div[3]/button";
+	
 	/**
 	 * Default constructor
 	 * @param driver
@@ -34,7 +39,7 @@ public class BlueEmployee extends BluePage{
 	 * Clicks the Manage button for "General Info"
 	 */
 	public void manageGenernalInfo(){
-		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[3]/button")).click();
+		getWebElementBy(By.xpath(manageGeneralXpath)).click();
 	}
 	
 	/**
@@ -90,7 +95,7 @@ public class BlueEmployee extends BluePage{
 	 * Clicks the Manage button for "Project Info"
 	 */
 	public void manageProjectInfo(){
-		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[5]/button")).click();
+		getWebElementBy(By.xpath(manageProjectInfoXpath)).click();
 	}
 	
 	/**
@@ -98,7 +103,7 @@ public class BlueEmployee extends BluePage{
 	 * @return new BlueTimeOff driver
 	 */
 	public BlueTimeOff manageTimeOff(){
-		getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[7]/div[1]/a")).click();
+		getWebElementBy(By.xpath(manageTimeOffXpath)).click();
 		return new BlueTimeOff(driver);
 	}
 

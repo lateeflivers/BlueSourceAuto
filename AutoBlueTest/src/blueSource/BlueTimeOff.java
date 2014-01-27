@@ -31,6 +31,10 @@ public class BlueTimeOff extends BluePage{
 	private static final String DELETE_COL = ".//td[8]/a/span";
 	private static final int DAYS_USED = 0;
 	private static final int DAYS_MAX = 1;
+	private static final String SaveTimeOffBtn = ".//*[@id='vacation_form']/input[11]";
+	private static final String alertMessageXpath ="html/body/div[1]/div[1]/div[1]";
+	private static final String BackBtnXpath = ".//*[@id='vacation_form']/a";
+	
 	
 	private static int[] sickDays;
 	private static int[] vacationDays;
@@ -355,7 +359,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 23, 2014
 	 */
 	public void saveTimeOff(){
-		getWebElementBy(By.xpath(".//*[@id='vacation_form']/input[10]")).click();
+		getWebElementBy(By.xpath(SaveTimeOffBtn)).click();
 	}
 	
 	/**
@@ -365,7 +369,8 @@ public class BlueTimeOff extends BluePage{
 	 * @return BlueEmployee
 	 */
 	public BlueEmployee clickBack(){
-		getWebElementBy(By.xpath("html/body/div[1]/div/a")).click();
+
+		getWebElementBy(By.xpath(BackBtnXpath)).click();
 		return new BlueEmployee(driver);
 	}
 	
@@ -413,8 +418,8 @@ public class BlueTimeOff extends BluePage{
 	 * @return
 	 */
 	public String getAlertMessage(){
-		if(isElementPresentAndDisplayed(By.xpath("html/body/div[1]/div/div[2]"))==true)
-			return getWebElementBy(By.xpath("html/body/div[1]/div/div[2]")).getText();
+		if(isElementPresentAndDisplayed(By.xpath(alertMessageXpath))==true)
+			return getWebElementBy(By.xpath(alertMessageXpath)).getText();
 		return null;
 	}
 	
