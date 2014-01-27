@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
  * Jan 22, 2014
  */
 public class BlueLogin extends BluePage {
-	
+	private static final String passwordErrorMessageXpath =  ".//*[@id='new_employee']/div[2]/div[1]";
 	/**
 	 * Constructor for BlueLogin page
 	 * @param Driver
@@ -61,7 +61,8 @@ public class BlueLogin extends BluePage {
 	}
 	
 	public String getPasswordErrorMsg(){
-		return getWebElementBy(By.xpath(".//*[@id='new_employee']/div[2]/div[1]")).getText();
+		return getWebElementBy(By.xpath(passwordErrorMessageXpath)).getText();
+
 	}
 	
 	/**
@@ -69,6 +70,6 @@ public class BlueLogin extends BluePage {
 	 * @return True if error message appears, otherwise false.
 	 */
 	public boolean isLoginErrorMsgPresent(){
-		return isElementPresentAndDisplayed(By.xpath(".//*[@id='new_employee']/div[2]/div[1]"));
+		return isElementPresentAndDisplayed(By.xpath(passwordErrorMessageXpath));
 	}
 }

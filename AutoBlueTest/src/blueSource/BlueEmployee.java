@@ -22,6 +22,10 @@ public class BlueEmployee extends BluePage{
 	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";
 	private static final String manageProjectInfoXpath = ".//*[@id='accordion']/div/div[5]/button";
 	private static final String manageGeneralXpath = ".//*[@id='accordion']/div/div[3]/button";
+	private static final String backButtonXpath = "html/body/div[1]/a";
+	private static final String generalTabBarXpath =".//*[@id='accordion']/div/div[3]";
+	private static final String projectTabBarXpath =".//*[@id='accordion']/div/div[5]";
+	private static final String timeOffTabBarXpath = ".//*[@id='accordion']/div/div[7]";
 	
 	/**
 	 * Default constructor
@@ -48,7 +52,8 @@ public class BlueEmployee extends BluePage{
 	public void expandGeneralTab(){
 		if(isExpanded(generalInfoExpanded)==false)
 		{
-			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[3]")).click();
+
+			getWebElementBy(By.xpath(generalTabBarXpath)).click();
 			generalInfoExpanded = true;
 			projectInfoExpanded = false;
 			timeOffInfoExpanded = false;
@@ -61,7 +66,7 @@ public class BlueEmployee extends BluePage{
 	public void expandProjectTab(){
 		if(isExpanded(projectInfoExpanded)==false)
 		{
-			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[5]")).click();
+			getWebElementBy(By.xpath(projectTabBarXpath)).click();
 			generalInfoExpanded = false;
 			projectInfoExpanded = true;
 			timeOffInfoExpanded = false;
@@ -74,7 +79,8 @@ public class BlueEmployee extends BluePage{
 	public void expandTimeOffTab(){
 		if(isExpanded(projectInfoExpanded)==false)
 		{
-			getWebElementBy(By.xpath(".//*[@id='accordion']/div/div[7]")).click();
+			getWebElementBy(By.xpath(timeOffTabBarXpath)).click();
+
 			generalInfoExpanded = false;
 			projectInfoExpanded = false;
 			timeOffInfoExpanded = true;
@@ -113,7 +119,7 @@ public class BlueEmployee extends BluePage{
 	 * @return new BlueIndex driver
 	 */
 	public BlueIndex goBack(){
-		getWebElementBy(By.xpath("html/body/div[1]/a")).click();
+		getWebElementBy(By.xpath(backButtonXpath)).click();
 		return new BlueIndex(driver);
 	}
 	

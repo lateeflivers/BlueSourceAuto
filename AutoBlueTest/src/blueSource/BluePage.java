@@ -23,7 +23,8 @@ public abstract class BluePage {
 	protected WebDriver driver;
 	protected WebElement element;
 	public String url;
-	
+	private static final String showInactiveXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/label";
+	private static final String addEmployeeBtnXpath = ".//*[@id='ng-app']/div[2]/div/div[3]/button";
 	/**
 	 * Constructor base for pages
 	 * @param driver
@@ -196,14 +197,16 @@ public abstract class BluePage {
 	 * Clicks the Show Inactives button
 	 */
 	public void toggleInactive(){
-		getWebElementBy(By.xpath(".//*[@id='ng-app']/div[2]/div/div[1]/label")).click();
+
+		getWebElementBy(By.xpath(showInactiveXpath)).click();
 	}
 	
 	/**
 	 * Clicks the "Add" button for adding a new employee
 	 */
 	public void addEmployee(){
-		getWebElementBy(By.xpath(".//*[@id='ng-app']/div[2]/div/div[2]/button")).click();
+		getWebElementBy(By.xpath(addEmployeeBtnXpath)).click();
+
 	}
 	
 
